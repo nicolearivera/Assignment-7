@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Which Season Are You?</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .quiz-header {
+      background: linear-gradient(135deg, #4a90d9, #7bc67e);
+      color: white;
+      padding: 2.5rem 1rem;
+      text-align: center;
+      border-radius: 0 0 1.5rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .question-block {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .question-block h5 {
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+    .answer-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      margin-bottom: 0.5rem;
+      border: 2px solid #dee2e6;
+      background: white;
+      color: #444;
+      border-radius: 0.5rem;
+      padding: 0.65rem 1rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .answer-btn:hover {
+      border-color: #4a90d9;
+      background: #eef5ff;
+    }
+    .answer-btn.selected {
+      border-color: #4a90d9;
+      background: #4a90d9;
+      color: white;
+      font-weight: 500;
+    }
+    #result-container {
+      display: none;
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+    #result-container h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    #result-container p {
+      color: #555;
+      font-size: 1.05rem;
+    }
+    .result-icon {
+      font-size: 3rem;
+      margin-bottom: 0.75rem;
+    }
+    .btn-submit {
+      font-size: 1.1rem;
+      padding: 0.75rem 2.5rem;
+      border-radius: 2rem;
+    }
+  </style>
+</head>
+<body>
+ 
+  <div class="quiz-header">
+    <h1 class="display-5 fw-bold">🍃 Which Season Are You?</h1>
+    <p class="lead mb-0">Answer 5 questions to find out your personality season</p>
+  </div>
+ 
+  <div class="container" style="max-width: 680px;">
+ 
+    <!-- Start quiz element -->
+    <div class="question-block" id="q1">
+      <h5>1. How do you prefer to spend a free Saturday?</h5>
+      <button class="answer-btn" data-question="q1" data-answer="1">☀️ Out exploring somewhere new and spontaneous</button>
+      <button class="answer-btn" data-question="q1" data-answer="2">🌸 Starting a new project or setting exciting goals</button>
+      <button class="answer-btn" data-question="q1" data-answer="3">🍂 A cozy gathering with close friends</button>
+      <button class="answer-btn" data-question="q1" data-answer="4">❄️ Staying home, reading, and recharging alone</button>
+    </div>
+    <!-- End quiz element -->
+ 
+    <!-- Start quiz element -->
+    <div class="question-block" id="q2">
+      <h5>2. When facing a big challenge, your first instinct is to…</h5>
+      <button class="answer-btn" data-question="q2" data-answer="1">Jump in and figure it out as you go</button>
+      <button class="answer-btn" data-question="q2" data-answer="2">Make a detailed plan and tackle it step by step</button>
+      <button class="answer-btn" data-question="q2" data-answer="3">Talk it through with someone you trust</button>
+      <button class="answer-btn" data-question="q2" data-answer="4">Step back, think deeply, and wait for clarity</button>
+    </div>
+    <!-- End quiz element -->
+ 
+    <!-- Start quiz element -->
+    <div class="question-block" id="q3">
+      <h5>3. Which phrase resonates with you most?</h5>
+      <button class="answer-btn" data-question="q3" data-answer="1">"Life is short — live it fully."</button>
+      <button class="answer-btn" data-question="q3" data-answer="2">"Every day is a fresh new beginning."</button>
+      <button class="answer-btn" data-question="q3" data-answer="3">"There's beauty in letting things go."</button>
+      <button class="answer-btn" data-question="q3" data-answer="4">"Still waters run deep."</button>
+    </div>
+    <!-- End quiz element -->
+ 
+    <!-- Start quiz element -->
+    <div class="question-block" id="q4">
+      <h5>4. What motivates you most in life?</h5>
+      <button class="answer-btn" data-question="q4" data-answer="1">Freedom, joy, and living in the moment</button>
+      <button class="answer-btn" data-question="q4" data-answer="2">Progress, potential, and new beginnings</button>
+      <button class="answer-btn" data-question="q4" data-answer="3">Gratitude, deep connections, and legacy</button>
+      <button class="answer-btn" data-question="q4" data-answer="4">Inner growth and truly knowing yourself</button>
+    </div>
+    <!-- End quiz element -->
+ 
+    <!-- Start quiz element -->
+    <div class="question-block" id="q5">
+      <h5>5. At the end of the day, you most want to feel…</h5>
+      <button class="answer-btn" data-question="q5" data-answer="1">Alive and buzzing with energy</button>
+      <button class="answer-btn" data-question="q5" data-answer="2">Accomplished and hopeful about tomorrow</button>
+      <button class="answer-btn" data-question="q5" data-answer="3">Content and deeply satisfied</button>
+      <button class="answer-btn" data-question="q5" data-answer="4">At peace and completely grounded</button>
+    </div>
+    <!-- End quiz element -->
+ 
+    <!-- Result container -->
+    <div id="result-container">
+      <!-- Result content injected by JS -->
+    </div>
+ 
+    <!-- Submit button -->
+    <div class="text-center mb-5">
+      <button class="btn btn-primary btn-submit" id="submit-btn">
+        Give Me the Results 🌿
+      </button>
+    </div>
+ 
+  </div>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // -------------------------------------------------------
+    // STEP 1: Track selected answers
+    // Object to store the user's selected answer value per question
+    // -------------------------------------------------------
+    const userAnswers = {
+      q1: null,
+      q2: null,
+      q3: null,
+      q4: null,
+      q5: null
+    };
+ 
+    // Select all question blocks on the page
+    const questionBlocks = document.querySelectorAll('.question-block');
+ 
+    // Loop over each question block
+    questionBlocks.forEach(function(block) {
+      // Select all answer buttons inside this block
+      const answerButtons = block.querySelectorAll('.answer-btn');
+ 
+      // Add a click listener to each button
+      answerButtons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          // Remove 'selected' from all buttons in this block
+          answerButtons.forEach(function(b) {
+            b.classList.remove('selected');
+          });
+ 
+          // Add 'selected' to the clicked button
+          btn.classList.add('selected');
+ 
+          // Store the answer value using data attributes
+          const questionId = btn.getAttribute('data-question');
+          const answerValue = parseInt(btn.getAttribute('data-answer'));
+          userAnswers[questionId] = answerValue;
+ 
+          console.log('Answer recorded:', questionId, '→', answerValue);
+        });
+      });
+    });
+ 
+    // -------------------------------------------------------
+    // STEP 2: Result definitions
+    // Scoring: each answer maps to points 1–4.
+    // Total range: 5 (all 1s) to 20 (all 4s)
+    //   5 – 8  → Summer
+    //   9 – 12 → Spring
+    //  13 – 16 → Autumn
+    //  17 – 20 → Winter
+    // -------------------------------------------------------
+    const results = {
+      summer: {
+        icon: '☀️',
+        title: 'You are Summer!',
+        color: '#f0a500',
+        description: 'You radiate warmth and enthusiasm. Spontaneous, optimistic, and full of energy — you live in the present and bring sunshine wherever you go. People feel lighter just being around you.'
+      },
+      spring: {
+        icon: '🌸',
+        title: 'You are Spring!',
+        color: '#5cb85c',
+        description: 'You are full of potential and forward momentum. You believe in fresh starts and embrace change with optimism. Motivated and organised, you turn ideas into reality and inspire the people around you.'
+      },
+      autumn: {
+        icon: '🍂',
+        title: 'You are Autumn!',
+        color: '#d9534f',
+        description: 'You are warm, grounded, and deeply loyal. At your best when things slow down enough to be appreciated, you have a gift for making people feel seen, heard, and completely at home.'
+      },
+      winter: {
+        icon: '❄️',
+        title: 'You are Winter!',
+        color: '#4a90d9',
+        description: 'Thoughtful and introspective, you value stillness and inner depth. There is a rich inner world beneath your calm surface, and people often seek you out for honest, considered perspective.'
+      }
+    };
+ 
+    // -------------------------------------------------------
+    // STEP 3: displayResult() function
+    // -------------------------------------------------------
+    function displayResult() {
+      // Check that all questions have been answered
+      const unanswered = Object.values(userAnswers).filter(function(v) {
+        return v === null;
+      });
+ 
+      if (unanswered.length > 0) {
+        alert('Please answer all ' + unanswered.length + ' remaining question(s) before seeing your result!');
+        return;
+      }
+ 
+      // Tally up the total score
+      let totalScore = 0;
+      for (const key in userAnswers) {
+        totalScore += userAnswers[key];
+      }
+ 
+      console.log('Total score:', totalScore);
+ 
+      // Determine result category based on score range
+      let resultKey;
+      if (totalScore <= 8) {
+        resultKey = 'summer';
+      } else if (totalScore <= 12) {
+        resultKey = 'spring';
+      } else if (totalScore <= 16) {
+        resultKey = 'autumn';
+      } else {
+        resultKey = 'winter';
+      }
+ 
+      const result = results[resultKey];
+ 
+      // Build and inject result HTML into #result-container
+      const container = document.getElementById('result-container');
+      container.innerHTML =
+        '<div class="result-icon">' + result.icon + '</div>' +
+        '<h2 style="color:' + result.color + '">' + result.title + '</h2>' +
+        '<p>' + result.description + '</p>' +
+        '<hr>' +
+        '<p class="text-muted mb-0">Your score: <strong>' + totalScore + ' / 20</strong></p>';
+ 
+      container.style.display = 'block';
+ 
+      // Scroll smoothly to the result
+      container.scrollIntoView({ behavior: 'smooth' });
+    }
+ 
+    // -------------------------------------------------------
+    // STEP 4: Hook up the submit button
+    // -------------------------------------------------------
+    document.getElementById('submit-btn').addEventListener('click', displayResult);
+  </script>
+</body>
+</html>
