@@ -1,0 +1,19 @@
+/* Optional styles to complement Bootstrap */
+ 
+body {
+    background-color: #f8f9fa;
+}
+ 
+.answer-btn.selected {
+    font-weight: 500;
+}
+ 
+#result-container {
+    transition: all 0.3s ease;
+}
+ 
+#result-text {
+    line-height: 1.7;
+    font-size: 1rem;
+}
+ 
